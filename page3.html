@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page 3 • Love</title>
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+    body{
+        margin:0;
+        padding:0;
+        height:100vh;
+        overflow:hidden;
+        font-family:'Poppins',sans-serif;
+        background:#0a0013;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        position:relative;
+        color:#fff;
+    }
+
+    /* falling blossoms */
+    .blossom{
+        position:absolute;
+        top:-10px;
+        width:22px;
+        height:22px;
+        background:url('https://i.ibb.co/2FqLrgP/petal.png');
+        background-size:cover;
+        animation: fall linear infinite;
+        opacity:0.8;
+    }
+
+    @keyframes fall {
+        0%{ transform:translateY(-10px) rotate(0deg); opacity:1; }
+        100%{ transform:translateY(110vh) rotate(360deg); opacity:0; }
+    }
+
+    .card{
+        width:90%;
+        max-width:480px;
+        padding:30px;
+        border-radius:18px;
+        background:rgba(255,255,255,0.05);
+        backdrop-filter:blur(12px);
+        text-align:center;
+        box-shadow:0 0 40px rgba(140,0,255,0.25);
+        animation: fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn{
+        from{ opacity:0; transform:scale(0.95);}
+        to{ opacity:1; transform:scale(1);}
+    }
+
+    h2{
+        font-size:22px;
+        line-height:1.5;
+        margin-bottom:30px;
+        color:#ff77ff;
+        text-shadow:0 0 10px rgba(255,0,255,0.3);
+    }
+
+    /* Buttons */
+    .btn{
+        width:100%;
+        padding:14px;
+        margin-top:15px;
+        border:none;
+        font-size:17px;
+        font-weight:700;
+        border-radius:40px;
+        cursor:pointer;
+        transition:0.2s;
+    }
+
+    .work{
+        background:linear-gradient(90deg,#ff4dd6,#b44dff);
+        color:#0d0016;
+        box-shadow:0 0 25px rgba(255,0,200,0.25);
+    }
+    .work:active{
+        transform:scale(0.97);
+    }
+
+    /* NOT INTERESTED → shake + disabled */
+    .shake-btn{
+        background:#3a003a;
+        color:#ff9adb;
+        cursor:not-allowed;
+    }
+
+    .shake-btn:hover{
+        animation: shake 0.35s ease;
+    }
+
+    @keyframes shake{
+        0%,100%{ transform:translateX(0); }
+        25%{ transform:translateX(-6px); }
+        50%{ transform:translateX(6px); }
+        75%{ transform:translateX(-4px); }
+    }
+</style>
+</head>
+<body>
+
+<!-- BLOSSOM CONTAINER -->
+<div id="blossom-container"></div>
+
+<style>
+  #blossom-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 9999;
+  }
+
+  .blossom {
+    position: absolute;
+    top: -10px;
+    font-size: 22px;
+    animation: fall linear forwards;
+    filter: blur(0.4px);
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+</style>
+
+<script>
+function createBlossom() {
+  const blossom = document.createElement("div");
+  blossom.classList.add("blossom");
+  blossom.textContent = "🌸";
+
+  const size = Math.random() * 10 + 14; 
+  blossom.style.fontSize = size + "px";
+
+  blossom.style.left = Math.random() * 100 + "vw";
+  blossom.style.animationDuration = (Math.random() * 4 + 6) + "s"; 
+  blossom.style.opacity = Math.random() * 0.8 + 0.2;
+
+  document.getElementById("blossom-container").appendChild(blossom);
+
+  setTimeout(() => {
+    blossom.remove();
+  }, 10000);
+}
+
+setInterval(createBlossom, 350); 
+</script>
+<div class="card">
+    <h2>
+        na ungala sincerely<br>love panrennnn 🎀🫶🫠
+    </h2>
+
+    <button class="btn work" onclick="window.location.href='page4.html'">(neenga)</button>
+    <button class="btn shake-btn">(not interested)</button>
+</div>
+
+</body>
+</html>

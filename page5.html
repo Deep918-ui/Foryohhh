@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page 5 • Codelyn</title>
+
+<!-- Premium Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background: radial-gradient(circle at top, #2a0040, #14001e, #09000f);
+        overflow: hidden;
+        font-family: "Poppins", sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        color: #ffffff;
+    }
+
+    /* Falling Blossoms */
+    .blossom {
+        position: absolute;
+        top: -10px;
+        font-size: 20px;
+        color: #ff77d9;
+        animation: fall linear forwards;
+        opacity: 0.9;
+        filter: drop-shadow(0 0 6px #ff69d4);
+    }
+
+    @keyframes fall {
+        0% { transform: translateY(-10vh) rotate(0deg) scale(1); opacity: 1; }
+        100% { transform: translateY(110vh) rotate(360deg) scale(1.3); opacity: 0; }
+    }
+
+    /* Main Card */
+    .card {
+        width: 90%;
+        max-width: 420px;
+        padding: 28px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 18px;
+        box-shadow: 0 0 40px rgba(255, 70, 200, 0.28);
+        backdrop-filter: blur(12px);
+        animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .text {
+        font-size: 20px;
+        line-height: 1.6;
+        color: #ffd6ff;
+        text-shadow: 0 0 10px #8a0099;
+        margin-bottom: 30px;
+    }
+
+    /* Premium Button */
+    .btn {
+        padding: 12px 28px;
+        font-size: 17px;
+        font-weight: 700;
+        color: #fff;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        background: linear-gradient(90deg, #ff3baf, #c200ff);
+        box-shadow: 0 0 20px rgba(255, 0, 180, 0.4);
+        transition: 0.2s ease;
+    }
+    .btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px rgba(255, 0, 180, 0.55);
+    }
+
+</style>
+</head>
+<body>
+
+<!-- Blossoms generator -->
+<script>
+    function spawnBlossom() {
+        const b = document.createElement("div");
+        b.className = "blossom";
+        b.innerHTML = "🌸";
+        b.style.left = Math.random() * 100 + "vw";
+        b.style.animationDuration = (4 + Math.random() * 4) + "s";
+        document.body.appendChild(b);
+
+        setTimeout(() => b.remove(), 8000);
+    }
+    setInterval(spawnBlossom, 300);
+</script>
+
+<!-- MAIN CARD -->
+<div class="card">
+    <div class="text">
+        Neenga ippovum enna frnd ah dha paakiringa<br>
+        ana na ungala apdi pakala… 💗
+    </div>
+
+    <button class="btn" onclick="next()">Seri</button>
+</div>
+
+<script>
+function next(){
+    window.location.href = "page6.html";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page 2</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Marcellus&display=swap" rel="stylesheet">
+
+<style>
+/* -------- Base Theme -------- */
+body{
+    margin:0;
+    padding:0;
+    height:100vh;
+    background:#0a0013;
+    overflow:hidden;
+    font-family:'Poppins', sans-serif;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+}
+
+/* ---------- Blossom Rain BG ---------- */
+.blossom{
+    position:absolute;
+    top:-10vh;
+    width:20px;
+    height:20px;
+    background:url('https://cdn-icons-png.flaticon.com/512/7650/7650339.png');
+    background-size:cover;
+    opacity:0.9;
+    filter:drop-shadow(0 0 6px #ff66e6);
+    animation: fall 7s linear infinite;
+    pointer-events:none;
+}
+
+@keyframes fall {
+    0% { transform:translateY(-10vh) rotate(0deg); opacity:0.9; }
+    100% { transform:translateY(110vh) rotate(360deg); opacity:0.3; }
+}
+
+/* -------- Main Card -------- */
+.card{
+    width:90%;
+    max-width:380px;
+    padding:28px;
+    background:rgba(255,255,255,0.05);
+    border-radius:16px;
+    box-shadow:0 0 30px rgba(203,0,255,0.25);
+    backdrop-filter:blur(6px);
+    text-align:center;
+    position:relative;
+    z-index:10;
+}
+
+.card h1{
+    font-family:'Marcellus', serif;
+    font-size:22px;
+    color:#ffb8ff;
+    line-height:1.5;
+}
+
+/* -------- Button -------- */
+.btn{
+    margin-top:20px;
+    padding:12px 28px;
+    background:linear-gradient(90deg,#b600ff,#ff3be6);
+    border:none;
+    border-radius:40px;
+    cursor:pointer;
+    color:white;
+    font-size:16px;
+    font-weight:700;
+    letter-spacing:0.5px;
+    box-shadow:0 0 15px rgba(255,0,200,0.4);
+    transition:0.25s;
+}
+.btn:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 25px rgba(255,0,200,0.7);
+}
+.btn:active{
+    transform:scale(0.97);
+}
+
+/* -------- Fade In -------- */
+.fade{
+    animation:fadeIn 1s ease forwards;
+    opacity:0;
+}
+@keyframes fadeIn{
+    from{ opacity:0; transform:translateY(20px); }
+    to{ opacity:1; transform:translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<!-- Blossom Generator -->
+<script>
+for(let i=0;i<22;i++){
+    let b = document.createElement("div");
+    b.classList.add("blossom");
+    b.style.left = Math.random()*100 + "vw";
+    b.style.animationDelay = (Math.random()*5) + "s";
+    b.style.transform = "scale("+(Math.random()*0.8+0.4)+")";
+    document.body.appendChild(b);
+}
+</script>
+
+<!-- MAIN CARD -->
+<div class="card fade">
+    <h1>
+        Unga allagula na maingiten<br>
+        Unga kaan 👀 alagu alagu<br>
+        Unga voice eppa maribidium kepenoooooo nu irruku 🥺💗
+    </h1>
+
+    <button class="btn" onclick="window.location.href='page3.html'">
+        ok
+    </button>
+</div>
+
+</body>
+</html>
