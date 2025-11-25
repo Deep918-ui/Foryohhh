@@ -23,57 +23,24 @@ body{
     position:relative;
 }
 
-<!-- BLOSSOM CONTAINER -->
-<div id="blossom-container"></div>
-
-<style>
-  #blossom-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 9999;
-  }
-
-  .blossom {
-    position: absolute;
-    top: -10px;
-    font-size: 22px;
-    animation: fall linear forwards;
-    filter: blur(0.4px);
-  }
-
-  @keyframes fall {
-    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
-  }
-</style>
-
-<script>
-function createBlossom() {
-  const blossom = document.createElement("div");
-  blossom.classList.add("blossom");
-  blossom.textContent = "🌸";
-
-  const size = Math.random() * 10 + 14; 
-  blossom.style.fontSize = size + "px";
-
-  blossom.style.left = Math.random() * 100 + "vw";
-  blossom.style.animationDuration = (Math.random() * 4 + 6) + "s"; 
-  blossom.style.opacity = Math.random() * 0.8 + 0.2;
-
-  document.getElementById("blossom-container").appendChild(blossom);
-
-  setTimeout(() => {
-    blossom.remove();
-  }, 10000);
+/* ---------- Blossom Rain BG ---------- */
+.blossom{
+    position:absolute;
+    top:-10vh;
+    width:20px;
+    height:20px;
+    background:url('https://cdn-icons-png.flaticon.com/512/7650/7650339.png');
+    background-size:cover;
+    opacity:0.9;
+    filter:drop-shadow(0 0 6px #ff66e6);
+    animation: fall 7s linear infinite;
+    pointer-events:none;
 }
 
-setInterval(createBlossom, 350); 
-</script>
+@keyframes fall {
+    0% { transform:translateY(-10vh) rotate(0deg); opacity:0.9; }
+    100% { transform:translateY(110vh) rotate(360deg); opacity:0.3; }
+}
 
 /* -------- Main Card -------- */
 .card{
